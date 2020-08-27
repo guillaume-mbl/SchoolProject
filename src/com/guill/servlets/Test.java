@@ -1,29 +1,39 @@
 package com.guill.servlets;
-import com.guill.beans.Person;
+
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
-
 import javax.servlet.http.HttpServlet;
- 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Test extends HttpServlet {
-	public void doGet( HttpServletRequest request, HttpServletResponse response )
-			throws ServletException, IOException{
-		String paramAuteur = request.getParameter( "auteur" );
-		String message = "Transmission de variables : OK ! " + paramAuteur;
-		/* Création du bean */
-		Person premierBean = new Person();
-		/* Initialisation de ses propriétés */
-		premierBean.setNom( "MBali" );
-		premierBean.setPrenom( "Guigui" );
-		/* Stockage du message et du bean dans l'objet request */
-		request.setAttribute( "test", message );
-		request.setAttribute( "personne", premierBean );
-		/* Transmission de la paire d'objets request/response à notre JSP */
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( request, response );
+import com.school.bdd.ConnexionBDD;
+
+public class Test extends HttpServlet{
+
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+		      throws ServletException, IOException {	
+		try {
+			/* Chargement du driver JDBC pour MySQL */
+			try {
+			    Class.forName( "com.mysql.jdbc.Driver" );
+			} catch ( ClassNotFoundException e ) {
+			    /* Gérer les éventuelles erreurs ici. */
+			}
+			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\tarik\\git\\SchoolProject\\src\\SQL\\db.properties");
+			conn.seConnecter();
+			
+			conn.getBooks(); 
+			System.out.println("OK");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( req, res );		
 	}
 }
