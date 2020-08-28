@@ -33,7 +33,10 @@
 		<servlet-name>AffichageTeachers</servlet-name>
 		<servlet-class>com.guill.servlets.DisplayTeacher</servlet-class>
 	</servlet>
-  
+  	<servlet>
+		<servlet-name>Classe</servlet-name>
+		<servlet-class>com.guill.servlets.Classe</servlet-class>
+	</servlet>
   
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
@@ -44,6 +47,11 @@
   <servlet-mapping>
   	<servlet-name>AffichageClasses</servlet-name>
   	<url-pattern>/classrooms</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Classe</servlet-name>
+  	<url-pattern>/class</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>

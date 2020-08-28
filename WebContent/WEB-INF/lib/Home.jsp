@@ -19,18 +19,17 @@
 
 <div class="input-group">
   <select class="custom-select" id="inputGroupSelect04">
+    <option selected>Choix d'une classe</option>
   <%
  	List<Classroom> list = (ArrayList<Classroom>)request.getAttribute("classes");
   	for(Classroom c : list){
-  		out.print("<option value= "+ c.getIdClassRoom() + ">" + c.getClassName() + "</option>");
+  		out.print("<option value= \"+ c.getIdClassRoom() +\">" + c.getClassName() + "</option>");
   	}
   
   %>
   </select>
   <div class="input-group-append">
- 	<a href="/class?id=1">
     <button class="btn btn-outline-secondary" type="button">OK</button>
-    </a>
   </div>
 
 </div>
@@ -41,4 +40,7 @@
 
 </body>
 </html>
+
+	
+				
 					
