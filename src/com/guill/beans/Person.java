@@ -6,7 +6,11 @@ public class Person {
 	private String lastname;
 	private String birthdate;
 	
-	
+
+	private int id;
+	public int getId() {
+		return id;
+	}
 	public String getFirstname() {
 		return firstname;
 	}

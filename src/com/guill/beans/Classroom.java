@@ -3,6 +3,7 @@ package com.guill.beans;
 public class Classroom {
 
 	private Integer idClassRoom;
+	
 	private String className;
 	public Integer getIdClassRoom() {
 		return idClassRoom;

@@ -13,17 +13,20 @@
   	<servlet-name>Test</servlet-name>
   	<servlet-class>com.guill.servlets.Test</servlet-class>
   </servlet>
+   <servlet>
+  	<servlet-name>AffichageClasses</servlet-name>
+  	<servlet-class>com.guill.servlets.DisplayClassrooms</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
   	<url-pattern>/toto</url-pattern>
   </servlet-mapping>
   
-  <servlet>
-  	<servlet-name>Test</servlet-name>
-  	<servlet-class>com.guill.servlets.Test</servlet-class>
-  </servlet>
+ 
   <servlet-mapping>
-  	<servlet-name>Test</servlet-name>
-  	<url-pattern>/toto</url-pattern>
+  	<servlet-name>AffichageClasses</servlet-name>
+  	<url-pattern>/classrooms</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -2,6 +2,9 @@ package com.guill.beans;
 
 public class Evaluation {
 	
+	private Integer idEvaluation;
+	private Float mark;
+	
 	public Integer getIdEvaluation() {
 		return idEvaluation;
 	}
@@ -14,8 +17,7 @@ public class Evaluation {
 	public void setMark(Float mark) {
 		this.mark = mark;
 	}
-	private Integer idEvaluation;
-	private Float mark;
+	
 
 	
 }

@@ -44,5 +44,16 @@ public class ConnexionBDD {
         
     	
     }
+    
+ public ResultSet getClassroom() throws SQLException {
+    	
+    	String query = "Select * from classroom";
+    	
+    	Statement st = maConnexion.createStatement();
+        ResultSet rs = st.executeQuery(query);
+        
+        
+        return rs;
+    }
 
 }

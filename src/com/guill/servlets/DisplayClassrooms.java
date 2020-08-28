@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.guill.beans.Classroom;
 import com.school.bdd.ConnexionBDD;
 
-public class Test extends HttpServlet{
+public class DisplayClassrooms extends HttpServlet{
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 		      throws ServletException, IOException {	
@@ -32,12 +32,16 @@ public class Test extends HttpServlet{
 
 			List<Classroom> listeClasse = new ArrayList<Classroom>();
 			
-			Classroom c = new Classroom();
 			
 			while(rs.next()) {
+				Classroom c = new Classroom();
+				c.setIdClassRoom(Integer.parseInt((rs.getString("id"))));
 				c.setClassName(rs.getString("name"));
-				c.setClassName(rs.getString("name"));
+				listeClasse.add(c);
 			}
+		
+			
+			req.setAttribute("classes", listeClasse);	
 			
 			
 			
@@ -49,6 +53,7 @@ public class Test extends HttpServlet{
 			e.printStackTrace();
 		}
 
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/Home.jsp" ).forward( req, res );		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/Home.jsp" ).forward( req, res );	
+
 	}
 }
