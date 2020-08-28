@@ -55,5 +55,16 @@ public class ConnexionBDD {
         
         return rs;
     }
+ 
+ public ResultSet getBook() throws SQLException {
+ 	
+ 	String query = "Select * from book";
+ 	
+ 	Statement st = maConnexion.createStatement();
+     ResultSet rs = st.executeQuery(query);
+     
+     
+     return rs;
+ }
 
 }
