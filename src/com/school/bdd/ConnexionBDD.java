@@ -75,5 +75,16 @@ public class ConnexionBDD {
      
      return rs;
  }
+ 
+ public ResultSet getStudent() throws SQLException {
+ 	String query = "SELECT * FROM person INNER JOIN student ON person.id=student.idPerson";
+ 	
+ 	Statement st = maConnexion.createStatement();
+     ResultSet rs = st.executeQuery(query);
+     
+     return rs;
+ }
+ 
+ 
 
 }

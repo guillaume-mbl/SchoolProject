@@ -2,14 +2,16 @@ package com.guill.beans;
 
 public class Person {
 
+	private int id;
 	private String firstname;
 	private String lastname;
 	private String birthdate;
 	
-
-	private int id;
 	public int getId() {
 		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getFirstname() {
 		return firstname;

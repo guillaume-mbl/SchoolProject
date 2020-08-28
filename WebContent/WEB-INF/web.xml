@@ -25,6 +25,10 @@
 		<servlet-name>AffichageMaterials</servlet-name>
 		<servlet-class>com.guill.servlets.DisplayMaterial</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AffichageStudents</servlet-name>
+		<servlet-class>com.guill.servlets.DisplayStudent</servlet-class>
+	</servlet>
   
   
   <servlet-mapping>
@@ -46,5 +50,10 @@
   <servlet-mapping>
   	<servlet-name>AffichageMaterials</servlet-name>
   	<url-pattern>/materials</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>AffichageStudents</servlet-name>
+  	<url-pattern>/students</url-pattern>
   </servlet-mapping>
 </web-app>
