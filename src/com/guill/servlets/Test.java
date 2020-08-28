@@ -34,6 +34,6 @@ public class Test extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/test.jsp" ).forward( req, res );		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/Home.jsp" ).forward( req, res );		
 	}
 }
