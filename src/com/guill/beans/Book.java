@@ -5,6 +5,8 @@ public class Book {
 	private String ref;
 	private String title;
 	private String author;
+	
+	
 	public String getRef() {
 		return ref;
 	}

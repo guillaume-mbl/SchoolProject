@@ -2,26 +2,27 @@ package com.guill.beans;
 
 public class Person {
 
-	private String nom;
-    private String prenom;
-    private boolean majeur;
-   
-    public String getNom() {
-        return nom;
-    }
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    public String getPrenom() {
-        return prenom;
-    }
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-    public boolean isMajeur() {
-        return majeur;
-    }
-    public void setMajeur(boolean majeur) {
-        this.majeur = majeur;
-    }
+	private String firstname;
+	private String lastname;
+	private String birthdate;
+	
+	
+	public String getFirstname() {
+		return firstname;
+	}
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+	public String getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
 }
