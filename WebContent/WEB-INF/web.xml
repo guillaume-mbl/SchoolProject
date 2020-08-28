@@ -17,6 +17,10 @@
   	<servlet-name>AffichageClasses</servlet-name>
   	<servlet-class>com.guill.servlets.DisplayClassrooms</servlet-class>
   </servlet>
+	<servlet>
+		<servlet-name>AffichageBooks</servlet-name>
+		<servlet-class>com.guill.servlets.DisplayBook</servlet-class>
+	</servlet>
   
   
   <servlet-mapping>
@@ -28,5 +32,10 @@
   <servlet-mapping>
   	<servlet-name>AffichageClasses</servlet-name>
   	<url-pattern>/classrooms</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>AffichageBooks</servlet-name>
+  	<url-pattern>/books</url-pattern>
   </servlet-mapping>
 </web-app>

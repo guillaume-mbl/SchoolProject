@@ -25,7 +25,7 @@ public class DisplayBook extends HttpServlet{
 			} catch ( ClassNotFoundException e ) {
 			    /* Gérer les éventuelles erreurs ici. */
 			}
-			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\tarik\\git\\SchoolProject\\src\\SQL\\db.properties");
+			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\33673\\git\\SchoolProject\\src\\SQL\\db.properties");
 			conn.seConnecter();
 			
 			ResultSet rs = conn.getBook();
@@ -38,7 +38,7 @@ public class DisplayBook extends HttpServlet{
 				b.setRef(Integer.parseInt((rs.getString("ref"))));
 				b.setTitle(rs.getString("title"));
 				b.setAuthor(rs.getString("author"));
-				listBooks.add(c);
+				listBooks.add(b);
 			}
 		
 			
@@ -54,7 +54,7 @@ public class DisplayBook extends HttpServlet{
 			e.printStackTrace();
 		}
 
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/Home.jsp" ).forward( req, res );	
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/Book.jsp" ).forward( req, res );	
 
 	}
 }

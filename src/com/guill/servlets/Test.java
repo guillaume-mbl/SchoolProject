@@ -25,7 +25,7 @@ public class Test extends HttpServlet{
 			} catch ( ClassNotFoundException e ) {
 			    /* Gérer les éventuelles erreurs ici. */
 			}
-			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\tarik\\git\\SchoolProject\\src\\SQL\\db.properties");
+			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\33673\\git\\SchoolProject\\src\\SQL\\db.properties");
 			conn.seConnecter();
 			
 			ResultSet rs = conn.getClassroom();

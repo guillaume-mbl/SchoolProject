@@ -2,15 +2,15 @@ package com.guill.beans;
 
 public class Book {
 	
-	private String ref;
+	private int ref;
 	private String title;
 	private String author;
 	
 	
-	public String getRef() {
+	public int getRef() {
 		return ref;
 	}
-	public void setRef(String ref) {
+	public void setRef(int ref) {
 		this.ref = ref;
 	}
 	public String getTitle() {
