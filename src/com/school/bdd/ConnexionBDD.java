@@ -66,5 +66,14 @@ public class ConnexionBDD {
      
      return rs;
  }
+ 
+ public ResultSet getMaterial() throws SQLException {
+ 	String query = "Select * from material";
+ 	
+ 	Statement st = maConnexion.createStatement();
+     ResultSet rs = st.executeQuery(query);
+     
+     return rs;
+ }
 
 }

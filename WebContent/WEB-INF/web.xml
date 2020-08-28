@@ -21,6 +21,10 @@
 		<servlet-name>AffichageBooks</servlet-name>
 		<servlet-class>com.guill.servlets.DisplayBook</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AffichageMaterials</servlet-name>
+		<servlet-class>com.guill.servlets.DisplayMaterial</servlet-class>
+	</servlet>
   
   
   <servlet-mapping>
@@ -37,5 +41,10 @@
   <servlet-mapping>
   	<servlet-name>AffichageBooks</servlet-name>
   	<url-pattern>/books</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>AffichageMaterials</servlet-name>
+  	<url-pattern>/materials</url-pattern>
   </servlet-mapping>
 </web-app>
