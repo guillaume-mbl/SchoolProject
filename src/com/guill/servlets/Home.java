@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.guill.beans.Classroom;
 import com.school.bdd.ConnexionBDD;
 
-public class DisplayClassrooms extends HttpServlet{
+public class Home extends HttpServlet{
 
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 		      throws ServletException, IOException {	
@@ -25,10 +25,10 @@ public class DisplayClassrooms extends HttpServlet{
 			} catch ( ClassNotFoundException e ) {
 			    /* Gérer les éventuelles erreurs ici. */
 			}
-			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\tarik\\git\\SchoolProject\\src\\SQL\\db.properties");
+			ConnexionBDD conn = new ConnexionBDD();
 			conn.seConnecter();
 			
-			ResultSet rs = conn.getClassroom();
+			ResultSet rs = conn.getClassrooms();
 
 			List<Classroom> listeClasse = new ArrayList<Classroom>();
 			
@@ -40,6 +40,7 @@ public class DisplayClassrooms extends HttpServlet{
 				listeClasse.add(c);
 			}
 		
+			
 			
 			req.setAttribute("classes", listeClasse);	
 			

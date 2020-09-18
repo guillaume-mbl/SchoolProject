@@ -25,25 +25,14 @@ public class DisplayMaterial extends HttpServlet{
 			} catch ( ClassNotFoundException e ) {
 			    /* Gérer les éventuelles erreurs ici. */
 			}
-			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\33673\\git\\SchoolProject\\src\\SQL\\db.properties");
+			ConnexionBDD conn = new ConnexionBDD();
 			conn.seConnecter();
 			
-			ResultSet rs = conn.getMaterial();
 
-			List<Material> listMaterials = new ArrayList<Material>();
-			
-			
-			while(rs.next()) {
-				Material m = new Material();
-				m.setIdMaterial(Integer.parseInt((rs.getString("id"))));
-				m.setTitle(rs.getString("title"));
-				listMaterials.add(m);
-			}
-		
+			List<Material> listMaterials = conn.getMaterials();
+				
 			
 			req.setAttribute("materials", listMaterials);	
-			
-			
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

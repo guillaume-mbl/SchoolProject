@@ -13,14 +13,25 @@
 		<title>Material</title>
 	</head>
 	<body>
-	  <ul class="list-group">
-		  <%
-		 	List<Material> list = (ArrayList<Material>)request.getAttribute("materials");
-		  	for(Material m : list){
-		  		out.print("<li class=\"list-group-item\"><a href=\"material/"+ m.getIdMaterial() + "\">"+ m.getTitle() + "</a></li>");
-		  	}
-		  %>
-		</ul>
+<table class="table table-dark">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">title</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+				List<Material> list = (ArrayList<Material>)request.getAttribute("materials");
+				for(Material m : list){
+					out.print("<tr>");
+					out.print("<th scope=\"row\" required name=\"idPerson\">" + m.getIdMaterial() + "</th>");
+					out.print("<td required id=\"firstname\" name=\"firstname\" value =\""+m.getTitle()+"\">" + m.getTitle() + "</td>");
+					out.print("</tr>");
+				}
+				%>
+			</tbody>
+		</table>
 	
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

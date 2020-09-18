@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.guill.beans.Student;
 import com.guill.beans.Teacher;
 import com.school.bdd.ConnexionBDD;
 
@@ -25,29 +26,13 @@ public class DisplayTeacher extends HttpServlet {
 			} catch ( ClassNotFoundException e ) {
 			    /* Gérer les éventuelles erreurs ici. */
 			}
-			ConnexionBDD conn = new ConnexionBDD("C:\\Users\\33673\\git\\SchoolProject\\src\\SQL\\db.properties");
+			ConnexionBDD conn = new ConnexionBDD();
 			conn.seConnecter();
 			
-			ResultSet rs = conn.getTeacher();
-
-			List<Teacher> listTeachers = new ArrayList<Teacher>();
-			
-			
-			while(rs.next()) {
-				Teacher t = new Teacher();
-				t.setIdTeacher(Integer.parseInt((rs.getString("idTeacher"))));
-				t.setId(Integer.parseInt((rs.getString("idPerson"))));
-				t.setFirstname(rs.getString("firstname"));
-				t.setLastname(rs.getString("lastname"));
-				t.setEmail(rs.getString("email"));
-				listTeachers.add(t);
-			}
-		
-			
+			List<Teacher> listTeachers = conn.getTeachers();
+						
 			req.setAttribute("teachers", listTeachers);	
-			
-			
-			
+						
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,5 +43,47 @@ public class DisplayTeacher extends HttpServlet {
 
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/Teacher.jsp" ).forward( req, res );	
 
+	}
+	
+	protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+		
+		if(request.getParameter("firstname") != null) {
+			ConnexionBDD conn;
+			try {
+				conn = new ConnexionBDD();
+				conn.seConnecter();
+				
+				conn.deleteTeacher(Integer.parseInt(request.getParameter("idPerson")));
+				
+			} catch (IOException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}else if(request.getParameter("surname") != null) {
+			
+			Teacher t = new Teacher();
+			
+			t.setBirthdate(request.getParameter("birthdate"));
+			t.setFirstname(request.getParameter("surname"));
+			t.setLastname(request.getParameter("name"));;
+			
+			
+			ConnexionBDD conn;
+			try {
+				conn = new ConnexionBDD();
+				conn.seConnecter();
+				
+				conn.addTeacher(t);
+				
+				
+			} catch (IOException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	
+		doGet(request,response);
 	}
 }
